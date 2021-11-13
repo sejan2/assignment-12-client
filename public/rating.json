@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Stoinis js",
+        "img": "https://i.ibb.co/R7s7CPD/men1.jpg",
+        "rating": "4",
+        "desc": " industries and business A set of ready-made online tools and processes for various  models. Automate your own marketing, sales "
+    },
+    {
+        "name": "Harris Rauf",
+        "img": "https://i.ibb.co/3h1HmB9/men2.jpg",
+        "rating": "5",
+        "desc": "A set of ready-made online  various industries and business models. Automate your own marketing, sales and service management processes."
+    },
+    {
+        "name": "Mitchel starc",
+        "img": "https://i.ibb.co/vV4RLjW/men3.jpg",
+        "rating": "4",
+        "desc": "-made online tools and processes for various industries and business models. Automate your ownsales and service management processes."
+    }
+]
