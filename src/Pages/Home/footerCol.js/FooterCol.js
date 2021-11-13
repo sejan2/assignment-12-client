@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const FooterCol = (props) => {
     return (
         <div>
+
             <Grid>
                 <h5>{props.menuTitle}</h5>
                 <ul style={{ listStyle: 'none', textDecoration: 'none' }}>
@@ -14,6 +15,7 @@ const FooterCol = (props) => {
                 </ul>
                 {props.children && props.children}
             </Grid>
+
         </div>
     );
 };
