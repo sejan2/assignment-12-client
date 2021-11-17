@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Container, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 
 const Booking = () => {
@@ -23,27 +24,27 @@ const Booking = () => {
 
             })
     }, [user.email])
-    const handleDelete = id => {
-        const proceed = window.confirm('Are you sure you want to delete')
-        if (proceed) {
-            const url = `https://guarded-refuge-97562.herokuapp.com/purchases/${id}`
-            console.log(url)
-            fetch(url, {
-                method: 'DELETE',
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    if (data.deletedCount) {
-                        alert('Deleted Successfully')
-                        const remaining = purchasing.filter(order => order._id !== id)
-                        setPurchasing(remaining)
-                    }
+    // const handleDelete = id => {
+    //     const proceed = window.confirm('Are you sure you want to delete')
+    //     if (proceed) {
+    //         const url = `https://guarded-refuge-97562.herokuapp.com/purchases/${id}`
+    //         console.log(url)
+    //         fetch(url, {
+    //             method: 'DELETE',
+    //         })
+    //             .then(res => res.json())
+    //             .then(data => {
+    //                 console.log(data)
+    //                 if (data.deletedCount) {
+    //                     alert('Deleted Successfully')
+    //                     const remaining = purchasing.filter(order => order._id !== id)
+    //                     setPurchasing(remaining)
+    //                 }
 
-                })
-        }
+    //             })
+    //     }
 
-    }
+    // }
 
 
 
@@ -61,7 +62,7 @@ const Booking = () => {
                             <TableCell align="right">Product name</TableCell>
                             <TableCell align="right">Product img</TableCell>
                             <TableCell align="right">Status</TableCell>
-                            <TableCell align="right">Action</TableCell>
+                            <TableCell align="right">Payment</TableCell>
 
                         </TableRow>
                     </TableHead>
@@ -77,7 +78,10 @@ const Booking = () => {
                                 <TableCell align="right">{row?.serviceName}</TableCell>
                                 <TableCell align="right"><img style={{ width: "90px", height: "60px" }} src={row?.img} alt="" /></TableCell>
                                 <TableCell align="right">{row?.status}</TableCell>
-                                <TableCell align="right"><button onClick={() => handleDelete(row._id)}>delete</button></TableCell>
+                                <TableCell align="right">{row?.payment ?
+                                    'Paid' :
+                                    <Link to={`dashboard/Payments/${row?._id}`}><button>Pay</button></Link>
+                                }</TableCell>
 
                             </TableRow>
                         ))}

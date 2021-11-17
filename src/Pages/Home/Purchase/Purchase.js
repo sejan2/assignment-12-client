@@ -34,8 +34,10 @@ const Purchase = () => {
             ...booking,
             serviceName: purchase?.name,
             status: "Pending",
+            price: purchase?.price,
             img: purchase?.img
         }
+        console.log(allService)
         fetch('https://guarded-refuge-97562.herokuapp.com/purchases', {
             method: 'POST',
             headers: {

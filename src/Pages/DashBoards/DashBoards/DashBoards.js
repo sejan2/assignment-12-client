@@ -26,6 +26,7 @@ import AddRating from '../AddRating/AddRating';
 import Payment from '../Payment/Payment';
 import AddProduct from '../AddProduct/AddProduct';
 import AllProducts from '../AllProducts/AllProducts';
+import PaymentStripe from '../PaymentsStripe/PaymentStripe';
 
 
 const drawerWidth = 200;
@@ -126,22 +127,25 @@ function DashBoards(props) {
                     <Route exact path={path}>
                         <DashBoardHome></DashBoardHome>
                     </Route>
-                    <Route exact path={`${path}/makeAdmin`}>
+                    <Route path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>
                     </Route>
-                    <Route exact path={`${path}/allOrder`}>
+                    <Route path={`${path}/Payments/:appointmentId`}>
+                        <PaymentStripe></PaymentStripe>
+                    </Route>
+                    <Route path={`${path}/allOrder`}>
                         <ManageAllProducts></ManageAllProducts>
                     </Route>
-                    <Route exact path={`${path}/addRating`}>
+                    <Route path={`${path}/addRating`}>
                         <AddRating></AddRating>
                     </Route>
-                    <Route exact path={`${path}/payment`}>
+                    <Route path={`${path}/payment`}>
                         <Payment></Payment>
                     </Route>
-                    <Route exact path={`${path}/addProduct`}>
+                    <Route path={`${path}/addProduct`}>
                         <AddProduct></AddProduct>
                     </Route>
-                    <Route exact path={`${path}/manageAllProduct`}>
+                    <Route path={`${path}/manageAllProduct`}>
                         <AllProducts></AllProducts>
                     </Route>
 
